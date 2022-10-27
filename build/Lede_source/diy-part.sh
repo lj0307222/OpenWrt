@@ -35,14 +35,15 @@ EOF
 sed -i "s/bootstrap/argon/ig" feeds/luci/collections/luci/Makefile
 
 # 删除多余网卡驱动
-sed -i 's/autosamba//g' ./target/linux/x86/Makefile
-sed -i 's/DEFAULT_PACKAGES += partx-utils mkf2fs e2fsprogs kmod-button-hotplug kmod-usb-hid kmod-mmc kmod-sdhci usbutils pciutils/DEFAULT_PACKAGES += partx-utils mkf2fs e2fsprogs kmod-sdhci usbutils pciutils/g' ./target/linux/x86/Makefile
-sed '/^kmod-alx/d' ./target/linux/x86/Makefile
-sed -i 's/htop lm-sensors iperf3 autosamba luci-app-adbyby-plus luci-app-ipsec-vpnd luci-proto-bonding luci-app-diskman/htop lm-sensors autocore-x86 automount luci-app-diskman/g' ./target/linux/x86/Makefile
-sed '/^luci-app-unblockmusic/d' ./target/linux/x86/Makefile
-sed '/^kmod-sound-hda-core/d ./target/linux/x86/Makefile
-sed '/^kmod-usb-net/d' ./target/linux/x86/Makefile
-
+sed -i 's/autosamba//g' ./target/linux/x86/Makefilesed -i 's/kmod-button-hotplug//g' ./target/linux/x86/Makefile
+sed -i '/^kmod-alx/d' ./target/linux/x86/Makefile
+sed -i 's/kmod-mmc kmod-sdhci//g' ./target/linux/x86/Makefile
+sed -i 's/iperf3//g' ./target/linux/x86/Makefile
+sed -i 's/luci-app-adbyby-plus luci-app-ipsec-vpnd luci-proto-bonding//g' ./target/linux/x86/Makefile
+sed -i 's/luci-app-unblockmusic luci-app-zerotier luci-app-xlnetacc ddns-scripts_aliyun//g' ./target/linux/x86/Makefile
+sed -i 's/ca-bundle luci-app-wireguard//g' ./target/linux/x86/Makefile
+sed -i '/^kmod-usb-net/d' ./target/linux/x86/Makefile
+sed -i '/^kmod-sound-hda-core/d' ./target/linux/x86/Makefile
 
 # 编译多主题时,设置固件默认主题（可自行修改您要的,主题名称必须对,比如下面代码的[argon],和肯定编译了该主题,要不然进不了后台）
 #sed -i "/exit 0/i\uci set luci.main.mediaurlbase='/luci-static/argon' && uci commit luci" "${FIN_PATH}"
