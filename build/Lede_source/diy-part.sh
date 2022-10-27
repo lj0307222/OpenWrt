@@ -35,6 +35,7 @@ EOF
 sed -i "s/bootstrap/argon/ig" feeds/luci/collections/luci/Makefile
 
 # 删除多余网卡驱动
+sed -i 's/autosamba//g' ./target/linux/x86/Makefile
 sed -i 's/DEFAULT_PACKAGES += partx-utils mkf2fs e2fsprogs kmod-button-hotplug kmod-usb-hid kmod-mmc kmod-sdhci usbutils pciutils/DEFAULT_PACKAGES += partx-utils mkf2fs e2fsprogs kmod-sdhci usbutils pciutils/g' ./target/linux/x86/Makefile
 sed '/^kmod-alx/d' ./target/linux/x86/Makefile
 sed -i 's/htop lm-sensors iperf3 autosamba luci-app-adbyby-plus luci-app-ipsec-vpnd luci-proto-bonding luci-app-diskman/htop lm-sensors autocore-x86 automount luci-app-diskman/g' ./target/linux/x86/Makefile
