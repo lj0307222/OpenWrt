@@ -22,17 +22,25 @@ uci set system.@system[0].hostname='OpenWrt'                  # 修改主机名�
 #uci set ttyd.@ttyd[0].command='/bin/login -f root'           # 设置ttyd免帐号登录（去掉uci前面的#生效）
 
 # 如果有用IPV6的话,可以使用以下命令创建IPV6客户端(LAN口)（去掉全部代码uci前面#号生效）
-#uci set network.ipv6=interface
-#uci set network.ipv6.proto='dhcpv6'
-#uci set network.ipv6.ifname='@lan'
-#uci set network.ipv6.reqaddress='try'
-#uci set network.ipv6.reqprefix='auto'
-#uci set firewall.@zone[0].network='lan ipv6'
+uci set network.ipv6=interface
+uci set network.ipv6.proto='dhcpv6'
+uci set network.ipv6.ifname='@lan'
+uci set network.ipv6.reqaddress='try'
+uci set network.ipv6.reqprefix='auto'
+uci set firewall.@zone[0].network='lan ipv6'
 EOF
 
 
 # 把bootstrap替换成argon为源码必选主题（可自行修改您要的,主题名称必须对,比如下面代码的[argon],源码内必须有该主题,要不然编译失败）
 sed -i "s/bootstrap/argon/ig" feeds/luci/collections/luci/Makefile
+
+# 删除多余网卡驱动
+sed -i 's/DEFAULT_PACKAGES += partx-utils mkf2fs e2fsprogs kmod-button-hotplug kmod-usb-hid kmod-mmc kmod-sdhci usbutils pciutils/DEFAULT_PACKAGES += partx-utils mkf2fs e2fsprogs kmod-sdhci usbutils pciutils/g' ./target/linux/x86/Makefile
+sed '/^kmod-alx/d' ./target/linux/x86/Makefile
+sed -i 's/htop lm-sensors iperf3 autosamba luci-app-adbyby-plus luci-app-ipsec-vpnd luci-proto-bonding luci-app-diskman \/htop lm-sensors autocore-x86 automount luci-app-diskman/g' ./target/linux/x86/Makefile
+sed '/^luci-app-unblockmusic/d' ./target/linux/x86/Makefile
+sed '/^kmod-sound-hda-core/d ./target/linux/x86/Makefile
+sed '/^kmod-usb-net/d' ./target/linux/x86/Makefile
 
 
 # 编译多主题时,设置固件默认主题（可自行修改您要的,主题名称必须对,比如下面代码的[argon],和肯定编译了该主题,要不然进不了后台）
@@ -40,11 +48,11 @@ sed -i "s/bootstrap/argon/ig" feeds/luci/collections/luci/Makefile
 
 
 # 增加个性名字 ${Author} 默认为你的github帐号,修改时候把 ${Author} 替换成你要的
-sed -i "s/OpenWrt /大灰狼 $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" "${ZZZ_PATH}"
+sed -i "s/OpenWrt /懒羊羊 $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" "${ZZZ_PATH}"
 
 
 # 设置首次登录后台密码为空（进入openwrt后自行修改密码）
-sed -i '/CYXluq4wUazHjmCDBCqXF/d' "${ZZZ_PATH}"
+# sed -i '/CYXluq4wUazHjmCDBCqXF/d' "${ZZZ_PATH}"
 
 
 # 删除默认防火墙
@@ -52,7 +60,7 @@ sed -i '/to-ports 53/d' "${ZZZ_PATH}"
 
 
 # 取消路由器每天跑分任务
-sed -i "/exit 0/i\sed -i '/coremark/d' /etc/crontabs/root" "${FIN_PATH}"
+# sed -i "/exit 0/i\sed -i '/coremark/d' /etc/crontabs/root" "${FIN_PATH}"
 
 
 # 修改默认内核（所有机型都适用，只要您编译的机型源码附带了其他内核，请至编译说明的第12条查看）
