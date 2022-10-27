@@ -35,7 +35,8 @@ EOF
 sed -i "s/bootstrap/argon/ig" feeds/luci/collections/luci/Makefile
 
 # 删除多余网卡驱动
-sed -i 's/autosamba//g' ./target/linux/x86/Makefilesed -i 's/kmod-button-hotplug//g' ./target/linux/x86/Makefile
+sed -i 's/autosamba//g' ./target/linux/x86/Makefile
+sed -i 's/kmod-button-hotplug//g' ./target/linux/x86/Makefile
 sed -i '/^kmod-alx/d' ./target/linux/x86/Makefile
 sed -i 's/kmod-mmc kmod-sdhci//g' ./target/linux/x86/Makefile
 sed -i 's/iperf3//g' ./target/linux/x86/Makefile
