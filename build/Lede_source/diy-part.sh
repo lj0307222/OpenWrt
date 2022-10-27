@@ -55,9 +55,9 @@ sed -i '/CYXluq4wUazHjmCDBCqXF/d' "${ZZZ_PATH}"
 # sed -i "/exit 0/i\sed -i '/coremark/d' /etc/crontabs/root" "${FIN_PATH}"
 
 # 删除多余网卡驱动
-sed 's/DEFAULT_PACKAGES += partx-utils mkf2fs e2fsprogs kmod-button-hotplug kmod-usb-hid kmod-mmc kmod-sdhci usbutils pciutils/DEFAULT_PACKAGES += partx-utils mkf2fs e2fsprogs kmod-sdhci usbutils pciutils/g' ./target/linux/x86/Makefile
+sed -i 's/DEFAULT_PACKAGES += partx-utils mkf2fs e2fsprogs kmod-button-hotplug kmod-usb-hid kmod-mmc kmod-sdhci usbutils pciutils/DEFAULT_PACKAGES += partx-utils mkf2fs e2fsprogs kmod-sdhci usbutils pciutils/g' ./target/linux/x86/Makefile
 sed '/^kmod-alx/d' ./target/linux/x86/Makefile
-sed 's/htop lm-sensors iperf3 autosamba luci-app-adbyby-plus luci-app-ipsec-vpnd luci-proto-bonding luci-app-diskman \/htop lm-sensors autocore-x86 automount luci-app-diskman/g' ./target/linux/x86/Makefile
+sed -i 's/htop lm-sensors iperf3 autosamba luci-app-adbyby-plus luci-app-ipsec-vpnd luci-proto-bonding luci-app-diskman \/htop lm-sensors autocore-x86 automount luci-app-diskman/g' ./target/linux/x86/Makefile
 sed '/^luci-app-unblockmusic/d' ./target/linux/x86/Makefile
 sed '/^kmod-sound-hda-core/d ./target/linux/x86/Makefile
 sed '/^kmod-usb-net/d' ./target/linux/x86/Makefile
