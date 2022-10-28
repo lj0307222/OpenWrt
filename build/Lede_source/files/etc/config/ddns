@@ -1,0 +1,18 @@
+
+config ddns 'global'
+	option ddns_dateformat '%F %R'
+	option ddns_loglines '250'
+	option upd_privateip '0'
+
+config service 'ipv6'
+	option use_ipv6 '1'
+	option service_name 'dnspod.cn'
+	option enabled '1'
+	option lookup_host 'ljop.top'
+	option domain '@ljop.top'
+	option username '353464'
+	option password '38c7ba5d7649238f593fa80fd909d968'
+	option interface 'lan'
+	option ip_network 'lan'
+	option force_ipversion '1'
+
