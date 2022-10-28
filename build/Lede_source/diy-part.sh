@@ -36,15 +36,15 @@ sed -i "s/bootstrap/argon/ig" feeds/luci/collections/luci/Makefile
 
 # 删除多余网卡驱动
 sed -i 's/autosamba//g' ./target/linux/x86/Makefile
-sed -i 's/kmod-button-hotplug//g' ./target/linux/x86/Makefile
+#sed -i 's/kmod-button-hotplug//g' ./target/linux/x86/Makefile
 sed -i '/^kmod-alx/d' ./target/linux/x86/Makefile
-sed -i 's/kmod-mmc kmod-sdhci//g' ./target/linux/x86/Makefile
-sed -i 's/iperf3//g' ./target/linux/x86/Makefile
-sed -i 's/luci-app-adbyby-plus luci-app-ipsec-vpnd luci-proto-bonding//g' ./target/linux/x86/Makefile
-sed -i 's/luci-app-unblockmusic luci-app-zerotier luci-app-xlnetacc ddns-scripts_aliyun//g' ./target/linux/x86/Makefile
-sed -i 's/ca-bundle luci-app-wireguard//g' ./target/linux/x86/Makefile
+#sed -i 's/kmod-mmc kmod-sdhci//g' ./target/linux/x86/Makefile
+#sed -i 's/iperf3//g' ./target/linux/x86/Makefile
+#sed -i 's/luci-app-adbyby-plus luci-app-ipsec-vpnd luci-proto-bonding//g' ./target/linux/x86/Makefile
+#sed -i 's/luci-app-unblockmusic luci-app-zerotier luci-app-xlnetacc ddns-scripts_aliyun//g' ./target/linux/x86/Makefile
+#sed -i 's/ca-bundle luci-app-wireguard//g' ./target/linux/x86/Makefile
 sed -i '/^kmod-usb-net/d' ./target/linux/x86/Makefile
-sed -i '/^kmod-sound-hda-core/d' ./target/linux/x86/Makefile
+#sed -i '/^kmod-sound-hda-core/d' ./target/linux/x86/Makefile
 
 # 查看kakefile
 echo "`cat ./target/linux/x86/Makefile`"
