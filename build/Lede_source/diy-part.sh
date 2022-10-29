@@ -49,6 +49,8 @@ sed -i '/^kmod-sound-hda-core/d' ./target/linux/x86/Makefile
 # 查看kakefile
 echo "`cat ./target/linux/x86/Makefile`"
 
+rm -rf ./feeds/shidahuilang/luci-app-tencentddns
+svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-tencentddns package/luci-app-tencentddns
 
 # 编译多主题时,设置固件默认主题（可自行修改您要的,主题名称必须对,比如下面代码的[argon],和肯定编译了该主题,要不然进不了后台）
 sed -i "/exit 0/i\uci set luci.main.mediaurlbase='/luci-static/argon' && uci commit luci" "${FIN_PATH}"
