@@ -1,0 +1,20 @@
+
+config base_arg 'base_arg'
+	option enabled '1'
+	option time '300'
+
+config domain_name
+	option record_type 'AAAA'
+	option sub_domain 'ipv6'
+	option main_domain '@ljop.top'
+
+config ip_last
+	option ip_all '2'
+	option IPtype '1'
+
+config login_mode
+	option mode 'token'
+	option artoken '353464,38c7ba5d7649238f593fa80fd909d968'
+
+config base
+
