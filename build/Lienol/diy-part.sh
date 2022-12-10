@@ -4,6 +4,13 @@
 # 自行拉取插件之前请SSH连接进入固件配置里面确认过没有你要的插件再单独拉取你需要的插件
 # 不要一下就拉取别人一个插件包N多插件的，多了没用，增加编译错误，自己需要的才好
 
+sed -i '/^kmod-alx/d' ./target/linux/x86/Makefile
+sed -i '/^luci-app-unblockmusic/d' ./target/linux/x86/Makefile
+sed -i '/^htop/d' ./target/linux/x86/Makefile
+sed -i '/^kmod-sound-hda-cored' ./target/linux/x86/Makefile
+sed -i '/^kmod-usb-net/d' ./target/linux/x86/Makefile
+sed -i 's/pciutils/pciutils kmod-r8168 htop lm-sensors iperf3 autocore-x86 automount kmod-drm-amdgpu/g' ./target/linux/x86/Makefile
+
 
 export IPv4_ipaddr="192.168.1.1"           # 修改openwrt后台地址(填0为关闭)
 export Netmask_netm="255.255.255.0"        # IPv4 子网掩码（默认：255.255.255.0）(填0为关闭)
