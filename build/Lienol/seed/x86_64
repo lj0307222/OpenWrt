@@ -1,3 +1,13 @@
 CONFIG_TARGET_x86=y
 CONFIG_TARGET_x86_64=y
 CONFIG_TARGET_x86_64_DEVICE_generic=y
+CONFIG_PACKAGE_luci-app-syncdial=y=y
+CONFIG_PACKAGE_luci-app-dnsfilter=y
+CONFIG_PACKAGE_luci-app-istore=y
+CONFIG_PACKAGE_luci-app-openclash=y
+CONFIG_PACKAGE_luci-app-nlbwmon=y
+CONFIG_PACKAGE_luci-app-socat=y
+CONFIG_PACKAGE_luci-app-tencentddns=y
+CONFIG_PACKAGE_kmod-ebtables-ipv6=y
+CONFIG_PACKAGE_odhcpd-ipv6only=y
+CONFIG_PACKAGE_ipv6helper=y
