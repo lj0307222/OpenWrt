@@ -7,13 +7,13 @@
 sed -i '/^kmod-alx/d' ./target/linux/x86/Makefile
 sed -i '/^luci-app-unblockmusic/d' ./target/linux/x86/Makefile
 sed -i '/^htop/d' ./target/linux/x86/Makefile
-sed -i '/^kmod-sound-hda-cored' ./target/linux/x86/Makefile
+sed -i '/^kmod-sound-hda-core/d' ./target/linux/x86/Makefile
 sed -i '/^kmod-usb-net/d' ./target/linux/x86/Makefile
 sed -i 's/pciutils/pciutils kmod-r8168 htop lm-sensors iperf3 autocore-x86 automount kmod-drm-amdgpu/g' ./target/linux/x86/Makefile
 
 svn co https://github.com/kiddin9/openwrt-packages/trunk/master/luci-app-dnsfilter package/dnsfilter
 svn co https://github.com/kiddin9/openwrt-packages/trunk/master/luci-app-socat package/socat
-git clone https://github.com/linkease/istore package/store
+git clone https://github.com/linkease/istore.git package/store
 svn co https://github.com/kiddin9/openwrt-packages/trunk/master/luci-app-tencentddns package/ddns
 svn co https://github.com/kenzok8/small-package/trunk/main/luci-app-openclash package openclash
 
