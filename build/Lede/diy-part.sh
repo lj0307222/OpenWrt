@@ -11,11 +11,11 @@ sed -i '/^kmod-sound-hda-core/d' ./target/linux/x86/Makefile
 sed -i '/^kmod-usb-net/d' ./target/linux/x86/Makefile
 sed -i 's/pciutils/pciutils kmod-r8168 htop lm-sensors iperf3 autocore-x86 automount kmod-drm-amdgpu/g' ./target/linux/x86/Makefile
 
-svn co https://github.com/kiddin9/openwrt-packages/trunk/master/luci-app-dnsfilter package/dnsfilter
-svn co https://github.com/kiddin9/openwrt-packages/trunk/master/luci-app-socat package/socat
+svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-dnsfilter package/dnsfilter
+svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-socat package/socat
 git clone https://github.com/linkease/istore.git package/store
-svn co https://github.com/kiddin9/openwrt-packages/trunk/master/luci-app-tencentddns package/ddns
-svn co https://github.com/kenzok8/small-package/trunk/main/luci-app-openclash package openclash
+svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-tencentddns package/ddns
+svn co https://github.com/kenzok8/small-package/trunk/luci-app-openclash package openclash
 
 export IPv4_ipaddr="192.168.1.1"           # 修改openwrt后台地址(填0为关闭)
 export Netmask_netm="255.255.255.0"        # IPv4 子网掩码（默认：255.255.255.0）(填0为关闭)
@@ -36,7 +36,7 @@ export OpenClash_Core="1"                   # 编译固件增加OpenClash时,把
 export Required_Topic="argon"               # 将bootstrap替换您需要的主题为必选主题,名称必须写对,源码内必须有该主题(填0为关闭)
 export Default_Theme="argon"                # 多主题时,选择某主题为默认第一主题 (填写主题名称,填0为关闭)
 export Delete_NotRequired="1"               # 个别机型内一堆其他机型固件,删除其他机型的,只保留当前主机型固件(1为开,0为关闭)
-export Kernel_Patchver="6.0"                # 更换内核版本,前提是您编译的机型源码内保证有其他内核存在(0为关闭,写上其他表示替换)
+export Kernel_Patchver="5.15"                # 更换内核版本,前提是您编译的机型源码内保证有其他内核存在(0为关闭,写上其他表示替换)
 export Confidentiality_free="1"             # 设置首次登录后台密码为空（进入openwrt后自行修改密码）(1为开,0为关闭)
 export Remove_Firewall="0"                  # 删除DNS强制重定向53端口防火墙规则(1为开,0为关闭)
 export Cancel_running="1"                   # 取消路由器每天跑分任务
