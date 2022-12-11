@@ -4,17 +4,29 @@
 # 自行拉取插件之前请SSH连接进入固件配置里面确认过没有你要的插件再单独拉取你需要的插件
 # 不要一下就拉取别人一个插件包N多插件的，多了没用，增加编译错误，自己需要的才好
 
+sed -i '/^kmod-alx/d' ./target/linux/x86/Makefile
+sed -i '/^luci-app-unblockmusic/d' ./target/linux/x86/Makefile
+sed -i '/^htop/d' ./target/linux/x86/Makefile
+sed -i '/^kmod-sound-hda-cored' ./target/linux/x86/Makefile
+sed -i '/^kmod-usb-net/d' ./target/linux/x86/Makefile
+sed -i 's/pciutils/pciutils kmod-r8168 htop lm-sensors iperf3 autocore-x86 automount kmod-drm-amdgpu/g' ./target/linux/x86/Makefile
 
-export IPv4_ipaddr="192.168.2.1"           # 修改openwrt后台地址(填0为关闭)
+svn co https://github.com/kiddin9/openwrt-packages/trunk/master/luci-app-dnsfilter package/dnsfilter
+svn co https://github.com/kiddin9/openwrt-packages/trunk/master/luci-app-socat package/socat
+git clone https://github.com/linkease/istore package/store
+svn co https://github.com/kiddin9/openwrt-packages/trunk/master/luci-app-tencentddns package/ddns
+svn co https://github.com/kenzok8/small-package/trunk/main/luci-app-openclash package openclash
+
+export IPv4_ipaddr="192.168.1.1"           # 修改openwrt后台地址(填0为关闭)
 export Netmask_netm="255.255.255.0"        # IPv4 子网掩码（默认：255.255.255.0）(填0为关闭)
 export Op_name="OpenWrt"                   # 修改主机名称为OpenWrt-123(填0为关闭)
 
-export Router_gateway="192.168.2.1"         # 旁路由设置 IPv4 网关(填0为关闭)
-export Lan_DNS="114.114.114.114 223.5.5.5"  # 旁路由设置 DNS(多个DNS要用空格分开)(填0为关闭)
-export IPv4_Broadcast="192.168.2.255"       # 设置 IPv4 广播(填0为关闭)
-export Close_DHCP="1"                       # 旁路由关闭DHCP功能(1为开,0为关闭)
-export Delete_Bridge="0"                    # 旁路由去掉桥接模式(1为开,0为关闭)
-export ttyd_Nopassword="0"                  # 设置ttyd免密登录(1为开,0为关闭)
+#export Router_gateway="192.168.2.1"         # 旁路由设置 IPv4 网关(填0为关闭)
+#export Lan_DNS="114.114.114.114 223.5.5.5"  # 旁路由设置 DNS(多个DNS要用空格分开)(填0为关闭)
+#export IPv4_Broadcast="192.168.2.255"       # 设置 IPv4 广播(填0为关闭)
+#export Close_DHCP="1"                       # 旁路由关闭DHCP功能(1为开,0为关闭)
+#export Delete_Bridge="0"                    # 旁路由去掉桥接模式(1为开,0为关闭)
+#export ttyd_Nopassword="0"                  # 设置ttyd免密登录(1为开,0为关闭)
 
 export Package_IPv6helper="1"               # 编译IPV6固件(1为开,0为关闭)
 export Remove_IPv6="1"                      # 关闭固件里面所有IPv6选项和IPv6的DNS解析记录(1为开,0为关闭)
@@ -28,9 +40,9 @@ export Kernel_Patchver="6.0"                # 更换内核版本,前提是您编
 export Confidentiality_free="1"             # 设置首次登录后台密码为空（进入openwrt后自行修改密码）(1为开,0为关闭)
 export Remove_Firewall="0"                  # 删除DNS强制重定向53端口防火墙规则(1为开,0为关闭)
 export Cancel_running="1"                   # 取消路由器每天跑分任务
-export AdGuardHome_Core="1"                 # 编译固件增加AdGuardHome时,把核心下载好,需要注意的是一个核心20多MB的,小闪存机子搞不来(1为开,0为关闭)
+export AdGuardHome_Core="0"                 # 编译固件增加AdGuardHome时,把核心下载好,需要注意的是一个核心20多MB的,小闪存机子搞不来(1为开,0为关闭)
 
-export Personal_Signature="大灰狼 $(TZ=UTC-8 date "+%Y.%m.%d")"  # 个性签名,你想写啥就写啥，(填0为关闭)
+export Personal_Signature="懒羊羊 $(TZ=UTC-8 date "+%Y.%m.%d")"  # 个性签名,你想写啥就写啥，(填0为关闭)
 
 
 
