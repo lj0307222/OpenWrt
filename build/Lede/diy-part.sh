@@ -15,7 +15,7 @@ svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-dnsfilter pack
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-socat package/socat
 git clone https://github.com/linkease/istore.git package/store
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-tencentddns package/ddns
-svn co https://github.com/kenzok8/small-package/trunk/luci-app-openclash package openclash
+svn co https://github.com/kenzok8/small-package/trunk/luci-app-openclash package/openclash
 
 export IPv4_ipaddr="192.168.1.1"           # 修改openwrt后台地址(填0为关闭)
 export Netmask_netm="255.255.255.0"        # IPv4 子网掩码（默认：255.255.255.0）(填0为关闭)
