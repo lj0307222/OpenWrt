@@ -18,7 +18,7 @@ svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-tencentddns pa
 svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/openclash
 git clone https://github.com/xiaorouji/openwrt-passwall.git package/passwall
 #svn co https://github.com/kenzok8/small-package/trunk/luci-app-istorex package/istorex
-
+svn co https://github.com/kenzok8/small-package/trunk/luci-theme-argon package/argon
 
 export IPv4_ipaddr="192.168.1.1"           # 修改openwrt后台地址(填0为关闭)
 export Netmask_netm="255.255.255.0"        # IPv4 子网掩码（默认：255.255.255.0）(填0为关闭)
