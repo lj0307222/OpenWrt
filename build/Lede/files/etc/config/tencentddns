@@ -1,0 +1,13 @@
+
+config base 'base'
+	option time '8'
+	option enable '1'
+	option ipv6 '1'
+	option clean '0'
+	option key_id '353464'
+	option key_token '38c7ba5d7649238f593fa80fd909d968'
+	option interface 'lan'
+	option main_domain 'ljop.top'
+	option sub_domain '@'
+	option siteid 'openwrt_36'
+
