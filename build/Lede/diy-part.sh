@@ -10,6 +10,8 @@ sed -i '/^htop/d' ./target/linux/x86/Makefile
 sed -i '/^kmod-sound-hda-core/d' ./target/linux/x86/Makefile
 sed -i '/^kmod-usb-net/d' ./target/linux/x86/Makefile
 sed -i 's/pciutils/pciutils kmod-r8168 htop lm-sensors autocore-x86 automount/g' ./target/linux/x86/Makefile
+sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
+
 
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-dnsfilter package/dnsfilter
 # svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-socat package/socat
