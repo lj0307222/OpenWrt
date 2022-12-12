@@ -15,7 +15,7 @@ svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-dnsfilter pack
 # svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-socat package/socat
 git clone https://github.com/linkease/istore.git package/store
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-tencentddns package/ddns
-svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/openclash
+#svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/openclash
 git clone https://github.com/xiaorouji/openwrt-passwall.git package/passwall
 #svn co https://github.com/kenzok8/small-package/trunk/luci-app-istorex package/istorex
 svn co https://github.com/kenzok8/small-package/trunk/luci-theme-argon package/argon
